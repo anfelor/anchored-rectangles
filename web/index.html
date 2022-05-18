@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Anchored Rectangles</title>
+<style>
+html, body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+#header {
+    padding: 0.5em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#canvas-wrapper {
+    flex: 1 1;
+    width: 100%;
+    overflow: hidden;
+}
+#button-wrapper {
+    flex: 1;
+}
+#coverage-wrapper {
+}
+</style>
+<script>
+window.addEventListener("load", function() {
+const canvas = document.getElementById('canvas');
+var points = [];
+var solution = [];
+var draggedPoint = null;
+var wasDragged = false;
+
+function nearest(points, point) {
+    var p = null;
+    points.forEach(e => {
+        if(p === null) {
+            p = e;
+        }
+        if(  Math.pow(e[0] - point[0], 2) + Math.pow(e[1] - point[1], 2)
+           < Math.pow(p[0] - point[0], 2) + Math.pow(p[1] - point[1], 2)) {
+            p = e;
+        }
+    });
+    return p;
+}
+
+function resizeCanvas() {
+    const wrapper = document.getElementById('canvas-wrapper');
+    canvas.width = wrapper.offsetWidth;
+    canvas.height = wrapper.offsetHeight;
+    drawCanvas();
+    solve();
+}
+
+function getPointsObj() {
+    const width = canvas.width; const height = canvas.height;
+    var obj = {};
+    for(let i = 0; i < points.length; ++i) {
+        obj[i] = {0: points[i][0] / width, 1: (height - points[i][1]) / height};
+    }
+    obj["length"] = points.length;
+    return obj;
+}
+
+function solve() {
+    solution = [];
+    if(window.java !== undefined) {
+        const width = canvas.width; const height = canvas.height;
+        const obj = getPointsObj();
+        const method = document.getElementById('solve-select').value; 
+        const s = java.solve(method, obj);
+        document.getElementById('coverage').textContent = (s.getCoverage() * 100).toString();
+        for(let i = 0; i <= points.length; ++i) {
+            solution[i] = [];
+            solution[i][0] = Math.round(s.getCorners()[i].get(0) * width);
+            solution[i][1] = Math.round(height - (s.getCorners()[i].get(1) * height));
+        }
+    }
+    drawCanvas();
+}
+
+function drawCanvas() {
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    points.map(function(e, i) {
+        if(solution[i]) {
+            const rect = new Path2D();
+            rect.rect(e[0], solution[i][1], solution[i][0] - e[0], e[1] - solution[i][1]);
+            ctx.fillStyle = 'hsl('+(67 * i)+',90%,60%)';
+            ctx.fill(rect);
+        }
+    });
+    if(solution[points.length]) { // origin rectangle
+        const rect = new Path2D();
+        rect.rect(0, solution[points.length][1], solution[points.length][0], canvas.height - solution[points.length][1]);
+        ctx.fillStyle = 'hsl(43,90%,60%)';
+        ctx.fill(rect);
+    }
+    points.forEach(function(e) {
+        const circle = new Path2D();
+        circle.arc(e[0], e[1], 2, 0, 2 * Math.PI);
+        ctx.fillStyle = 'black';
+        ctx.fill(circle);
+    });
+}
+
+resizeCanvas();
+
+window.addEventListener("resize", resizeCanvas);
+
+canvas.addEventListener('mousedown', function(event) {
+    var p = nearest(points, [event.offsetX, event.offsetY]);
+    if(p !== null && Math.pow(p[0] - event.offsetX, 2) + Math.pow(p[1] - event.offsetY, 2) <= 9) {
+        draggedPoint = points.indexOf(p);
+        wasDragged = false;
+    }
+});
+
+canvas.addEventListener('mouseup', function(event) {
+    if(draggedPoint !== null && wasDragged) {
+        solve();
+    }
+    draggedPoint = null;
+});
+
+canvas.addEventListener('click', function(event) {
+    var p = nearest(points, [event.offsetX, event.offsetY]);
+    if(draggedPoint === null &&
+        (p === null || Math.pow(p[0] - event.offsetX, 2) + Math.pow(p[1] - event.offsetY, 2) > 9)) {
+        points.push([event.offsetX, event.offsetY]);
+        solve();
+    }
+});
+
+canvas.addEventListener('dblclick', function(event) {
+    var p = nearest(points, [event.offsetX, event.offsetY]);
+    points = points.filter(function(e) {
+        return e[0] !== p[0] || e[1] !== p[1];
+    });
+    solve();
+});
+
+canvas.addEventListener('mousemove', function(event) {
+    if(draggedPoint !== null) {
+        points[draggedPoint] = [event.offsetX, event.offsetY];
+        wasDragged = true;
+        if(solution !== null) {
+            solve();
+        } else {
+            drawCanvas();
+        }
+    }
+});
+
+document.getElementById('solve-select').addEventListener('change', function() {
+    solve();
+});
+
+document.getElementById('save').addEventListener('click', function() {
+    if(window.java) {
+        window.java.saveFile(getPointsObj());
+    }
+});
+
+document.getElementById('load').addEventListener('click', function() {
+    const width = canvas.width; const height = canvas.height;
+    if(window.java) {
+        const instance = window.java.loadFile();
+        if(instance != null) {
+            document.getElementById('coverage').textContent = "Loaded";
+            points = []
+            for(var i = 0; i < instance.getSize(); i++) {
+                points[i] = []
+                points[i][0] = Math.round(instance.getPoints()[i].get(0) * width);
+                points[i][1] = Math.round(height - instance.getPoints()[i].get(1) * height);
+            }
+            solve();
+        }
+    }
+});
+
+});
+</script>
+</head>
+<body>
+    <div id="header">
+        <div id="button-wrapper">
+            <label for="solve-select">Solver:</label>
+            <select name="solve-select" id="solve-select">
+                <option value="tile">TilePacking</option>
+                <option value="greedy">GreedyPacking</option>
+                <option value="opt">Optimal</option>
+                <option value="dijkstra">Dijkstra</option>
+            </select>
+            <button id="load">Load</button>
+            <button id="save">Save</button>
+        </div>
+        <div id="coverage-wrapper">
+            Coverage: <span id="coverage">100</span>%
+        </div>
+    </div>
+    <div id="canvas-wrapper">
+        <canvas id="canvas"></canvas>
+    </div>
+</body>
+</html>

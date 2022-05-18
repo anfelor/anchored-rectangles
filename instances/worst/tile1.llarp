@@ -1,0 +1,26 @@
+c Instance for the Lower Left Anchored Rectangle Problem
+c The first line gives the number of points and dimension.
+c The second line gives the upper right corner of the rectangle.
+c The list of points (excluding the origin) follows.
+p llarp 20 2
+1.0 1.0
+0.727 0.231
+0.375 0.871
+0.553 0.947
+0.077 0.214
+0.745 0.973
+0.885 0.547
+0.66 0.609
+0.484 0.667
+0.696 0.032
+0.249 0.534
+0.151 0.522
+0.89 0.395
+0.302 0.456
+0.859 0.825
+0.022 0.082
+0.077 0.214
+0.319 0.917
+0.853 0.94
+0.952 0.596
+0.421 0.808

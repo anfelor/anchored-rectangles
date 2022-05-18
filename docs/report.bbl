@@ -1,0 +1,296 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{anyt/global//global/global}
+    \entry{antoniadis2019complexity}{inproceedings}{}
+      \name{author}{8}{}{%
+        {{hash=cc880bf3c15796a6c4882926f7a74200}{%
+           family={Antoniadis},
+           familyi={A\bibinitperiod},
+           given={Antonios},
+           giveni={A\bibinitperiod}}}%
+        {{hash=6dcb59f385b86538edb9c2b7bcf21f4a}{%
+           family={Biermeier},
+           familyi={B\bibinitperiod},
+           given={Felix},
+           giveni={F\bibinitperiod}}}%
+        {{hash=6754d68459d8f44ac8e5b87a6900a064}{%
+           family={Cristi},
+           familyi={C\bibinitperiod},
+           given={Andrés},
+           giveni={A\bibinitperiod}}}%
+        {{hash=f507643d38bef332d0cea2be1150f6e3}{%
+           family={Damerius},
+           familyi={D\bibinitperiod},
+           given={Christoph},
+           giveni={C\bibinitperiod}}}%
+        {{hash=c3b361865b8b5dcd45998a2e6e89f810}{%
+           family={Hoeksma},
+           familyi={H\bibinitperiod},
+           given={Ruben},
+           giveni={R\bibinitperiod}}}%
+        {{hash=da3d6d814ecae99ba29c92bd456abc36}{%
+           family={Kaaser},
+           familyi={K\bibinitperiod},
+           given={Dominik},
+           giveni={D\bibinitperiod}}}%
+        {{hash=92df324e31e57e3c852ef6bc2b4a19f2}{%
+           family={Kling},
+           familyi={K\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+        {{hash=1ea228052e4580446cde7ba5b53f8cc6}{%
+           family={Nölke},
+           familyi={N\bibinitperiod},
+           given={Lukas},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Schloss Dagstuhl-Leibniz-Zentrum fuer Informatik}%
+      }
+      \strng{namehash}{95f2d3352874c16c2a23f99c891fcd0d}
+      \strng{fullhash}{8330c923df1739986d628eeb717fcd98}
+      \strng{bibnamehash}{95f2d3352874c16c2a23f99c891fcd0d}
+      \strng{authorbibnamehash}{95f2d3352874c16c2a23f99c891fcd0d}
+      \strng{authornamehash}{95f2d3352874c16c2a23f99c891fcd0d}
+      \strng{authorfullhash}{8330c923df1739986d628eeb717fcd98}
+      \field{labelalpha}{Ant+19}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{27th Annual European Symposium on Algorithms (ESA 2019)}
+      \field{title}{On the complexity of anchored rectangle packing}
+      \field{year}{2019}
+    \endentry
+    \entry{damerius2021greedily}{article}{}
+      \name{author}{4}{}{%
+        {{hash=f507643d38bef332d0cea2be1150f6e3}{%
+           family={Damerius},
+           familyi={D\bibinitperiod},
+           given={Christoph},
+           giveni={C\bibinitperiod}}}%
+        {{hash=da3d6d814ecae99ba29c92bd456abc36}{%
+           family={Kaaser},
+           familyi={K\bibinitperiod},
+           given={Dominik},
+           giveni={D\bibinitperiod}}}%
+        {{hash=92df324e31e57e3c852ef6bc2b4a19f2}{%
+           family={Kling},
+           familyi={K\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+        {{hash=bf61b3b393feb3dbd020084f7d8c586e}{%
+           family={Schneider},
+           familyi={S\bibinitperiod},
+           given={Florian},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{678984adc4773b190da7182fe0c0aea6}
+      \strng{fullhash}{ad71ea9b9e83533a75c5ed484cf8e0b4}
+      \strng{bibnamehash}{678984adc4773b190da7182fe0c0aea6}
+      \strng{authorbibnamehash}{678984adc4773b190da7182fe0c0aea6}
+      \strng{authornamehash}{678984adc4773b190da7182fe0c0aea6}
+      \strng{authorfullhash}{ad71ea9b9e83533a75c5ed484cf8e0b4}
+      \field{labelalpha}{Dam+21}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:2102.08181}
+      \field{title}{On Greedily Packing Anchored Rectangles}
+      \field{year}{2021}
+    \endentry
+    \entry{dumitrescu2015packing}{article}{}
+      \name{author}{2}{}{%
+        {{hash=0e71e642788ccd6d8206c4313f327798}{%
+           family={Dumitrescu},
+           familyi={D\bibinitperiod},
+           given={Adrian},
+           giveni={A\bibinitperiod}}}%
+        {{hash=33b528ee28a145b44286f359772b20f9}{%
+           family={Tóth},
+           familyi={T\bibinitperiod},
+           given={Csaba\bibnamedelima D},
+           giveni={C\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{ea1937dc4c4013b2ae162bc6835ec09e}
+      \strng{fullhash}{ea1937dc4c4013b2ae162bc6835ec09e}
+      \strng{bibnamehash}{ea1937dc4c4013b2ae162bc6835ec09e}
+      \strng{authorbibnamehash}{ea1937dc4c4013b2ae162bc6835ec09e}
+      \strng{authornamehash}{ea1937dc4c4013b2ae162bc6835ec09e}
+      \strng{authorfullhash}{ea1937dc4c4013b2ae162bc6835ec09e}
+      \field{labelalpha}{DT15}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Combinatorica}
+      \field{number}{1}
+      \field{title}{Packing anchored rectangles}
+      \field{volume}{35}
+      \field{year}{2015}
+      \field{pages}{39\bibrangedash 61}
+      \range{pages}{23}
+    \endentry
+    \entry{harder2019anchoredrectanglecover}{thesis}{}
+      \name{author}{1}{}{%
+        {{hash=1c00004b8fc00552a3d22694ff119c2c}{%
+           family={Harder},
+           familyi={H\bibinitperiod},
+           given={Jonathan\bibnamedelima Gadea},
+           giveni={J\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Freie Universität Berlin}%
+      }
+      \strng{namehash}{1c00004b8fc00552a3d22694ff119c2c}
+      \strng{fullhash}{1c00004b8fc00552a3d22694ff119c2c}
+      \strng{bibnamehash}{1c00004b8fc00552a3d22694ff119c2c}
+      \strng{authorbibnamehash}{1c00004b8fc00552a3d22694ff119c2c}
+      \strng{authornamehash}{1c00004b8fc00552a3d22694ff119c2c}
+      \strng{authorfullhash}{1c00004b8fc00552a3d22694ff119c2c}
+      \field{labelalpha}{Har19}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Anchored Rectangle Cover}
+      \field{year}{2019}
+    \endentry
+    \entry{hougardy2015dijkstra}{article}{}
+      \name{author}{3}{}{%
+        {{hash=045d31e1d5df8777f0f467ff00e71753}{%
+           family={Hougardy},
+           familyi={H\bibinitperiod},
+           given={Stefan},
+           giveni={S\bibinitperiod}}}%
+        {{hash=32c50894cd89a35faa5aacbe7a2c3fa5}{%
+           family={Silvanus},
+           familyi={S\bibinitperiod},
+           given={Jannik},
+           giveni={J\bibinitperiod}}}%
+        {{hash=60b91c18a457236628f65ee35ab35ddb}{%
+           family={Vygen},
+           familyi={V\bibinitperiod},
+           given={Jens},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{26b450348380a93537206b7c0bf85af7}
+      \strng{fullhash}{26b450348380a93537206b7c0bf85af7}
+      \strng{bibnamehash}{26b450348380a93537206b7c0bf85af7}
+      \strng{authorbibnamehash}{26b450348380a93537206b7c0bf85af7}
+      \strng{authornamehash}{26b450348380a93537206b7c0bf85af7}
+      \strng{authorfullhash}{26b450348380a93537206b7c0bf85af7}
+      \field{labelalpha}{HSV15}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Dijkstra meets Steiner: a fast exact goal-oriented Steiner tree algorithm}
+      \field{year}{2015}
+    \endentry
+    \entry{klein2006algorithmische}{book}{}
+      \name{author}{1}{}{%
+        {{hash=6e0356c3e2ccab08fd82a571d84aea65}{%
+           family={Klein},
+           familyi={K\bibinitperiod},
+           given={Rolf},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag}%
+      }
+      \strng{namehash}{6e0356c3e2ccab08fd82a571d84aea65}
+      \strng{fullhash}{6e0356c3e2ccab08fd82a571d84aea65}
+      \strng{bibnamehash}{6e0356c3e2ccab08fd82a571d84aea65}
+      \strng{authorbibnamehash}{6e0356c3e2ccab08fd82a571d84aea65}
+      \strng{authornamehash}{6e0356c3e2ccab08fd82a571d84aea65}
+      \strng{authorfullhash}{6e0356c3e2ccab08fd82a571d84aea65}
+      \field{labelalpha}{Kle06}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Algorithmische Geometrie: Grundlagen, Methoden, Anwendungen}
+      \field{year}{2006}
+    \endentry
+    \entry{tutte1969recent}{article}{}
+      \name{author}{1}{}{%
+        {{hash=7209f475f87ea2fc5cafb2ee70984821}{%
+           family={Tutte},
+           familyi={T\bibinitperiod},
+           given={William\bibnamedelima Thomas},
+           giveni={W\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Academic Press}%
+      }
+      \strng{namehash}{7209f475f87ea2fc5cafb2ee70984821}
+      \strng{fullhash}{7209f475f87ea2fc5cafb2ee70984821}
+      \strng{bibnamehash}{7209f475f87ea2fc5cafb2ee70984821}
+      \strng{authorbibnamehash}{7209f475f87ea2fc5cafb2ee70984821}
+      \strng{authornamehash}{7209f475f87ea2fc5cafb2ee70984821}
+      \strng{authorfullhash}{7209f475f87ea2fc5cafb2ee70984821}
+      \field{labelalpha}{Tut69}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Recent progress in combinatorics (Proceedings of the 3rd Waterloo Conference on Combinatorics)}
+      \field{year}{1969}
+    \endentry
+    \entry{widmayer1993algorithmen}{book}{}
+      \name{author}{2}{}{%
+        {{hash=980f44eb8255d3949ab556b996e5d35b}{%
+           family={Widmayer},
+           familyi={W\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+        {{hash=a2f260cb76ba0de682bfcd97ffd73d5e}{%
+           family={Ottmann},
+           familyi={O\bibinitperiod},
+           given={T},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{22425835c4be803d2fb210b4d76bcd5f}
+      \strng{fullhash}{22425835c4be803d2fb210b4d76bcd5f}
+      \strng{bibnamehash}{22425835c4be803d2fb210b4d76bcd5f}
+      \strng{authorbibnamehash}{22425835c4be803d2fb210b4d76bcd5f}
+      \strng{authornamehash}{22425835c4be803d2fb210b4d76bcd5f}
+      \strng{authorfullhash}{22425835c4be803d2fb210b4d76bcd5f}
+      \field{labelalpha}{WO93}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Algorithmen und Datenstrukturen}
+      \field{year}{1993}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
