@@ -18,14 +18,14 @@ import org.anchoredrectangles.Point.Point;
 public class App {
 
     public static void main(String[] args) {
-        // DraggableGui.main(args);
+        DraggableGui.main(args);
         // timeSolver(11000, 10, new GreedyAlgorithm(false, new NormOrder(1)), "Greedy");
         // timeSolver(80, 1, new DynProgAlgorithm(), "DynProg");
         // timeSolver(90, 1, new DijkstraDynProgAlgorithm(), "DijkstraDynProg");
         // showNormPerformance();
         // findBadInstance(10000, "../instances/worst/tile5.llarp", new TilePackingAlgorithm(new NormOrder(1)));
 
-        testCoverage();
+        // testCoverage();
     }
 
     public static void testCoverage() {
