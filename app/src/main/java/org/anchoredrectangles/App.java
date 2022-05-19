@@ -18,27 +18,38 @@ import org.anchoredrectangles.Point.Point;
 public class App {
 
     public static void main(String[] args) {
-        DraggableGui.main(args);
+        // DraggableGui.main(args);
         // timeSolver(11000, 10, new GreedyAlgorithm(false, new NormOrder(1)), "Greedy");
         // timeSolver(80, 1, new DynProgAlgorithm(), "DynProg");
         // timeSolver(90, 1, new DijkstraDynProgAlgorithm(), "DijkstraDynProg");
         // showNormPerformance();
         // findBadInstance(10000, "../instances/worst/tile5.llarp", new TilePackingAlgorithm(new NormOrder(1)));
 
-        // timeSolver(10, 100, new GreedyAlgorithm(false, new NormOrder(1)), "Greedy 10");
-        // timeSolver(50, 100, new GreedyAlgorithm(false, new NormOrder(1)), "Greedy 50");
-        // timeSolver(100, 100, new GreedyAlgorithm(false, new NormOrder(1)), "Greedy 100");
-        // timeSolver(500, 100, new GreedyAlgorithm(false, new NormOrder(1)), "Greedy 500");
-        // timeSolver(1000, 100, new GreedyAlgorithm(false, new NormOrder(1)), "Greedy 1000");
-        // timeSolver(5000, 100, new GreedyAlgorithm(false, new NormOrder(1)), "Greedy 5000");
-        // timeSolver(10000, 100, new GreedyAlgorithm(false, new NormOrder(1)), "Greedy 10000");
+        testCoverage();
+    }
 
-        // Instance in = UniformGenerator.generate(25, new Point(1,1));
-        // SolutionSet s1 = (new DijkstraDynProgAlgorithm()).solve(in);
-        // SolutionSet s2 = (new DynProgAlgorithm()).solve(in);
-        // System.out.println(s1.getCoverage());
-        // System.out.println(s2.getCoverage());
-        // System.out.println(in.toString());
+    public static void testCoverage() {
+        int tries = 100; int n = 5;
+        int start = 100; int end = 1001;
+        double[][] sums = new double[end][n];
+        for(int i = start; i < end; i += 10) {
+            for(int j = 0; j < n; j++) { sums[i][j] = 0; }
+            for(int j = 0; j < tries; j++) {
+                Instance in = UniformGenerator.generate(i, new Point(1,1));
+                sums[i][0] += (new GreedyAlgorithm(true, new NormOrder(0.7))).solve(in).getCoverage();
+                sums[i][1] += (new GreedyAlgorithm(true, new NormOrder(0.8))).solve(in).getCoverage();
+                sums[i][2] += (new GreedyAlgorithm(true, new NormOrder(0.9))).solve(in).getCoverage();
+                sums[i][3] += (new GreedyAlgorithm(true, new NormOrder(1))).solve(in).getCoverage();
+                sums[i][4] += (new GreedyAlgorithm(true, new NormOrder(1.1))).solve(in).getCoverage();
+            }
+        }
+        for(int j = 0; j < n; j++) {
+            System.out.println("Solver: " + j + ", ");
+            for(int i = start; i < end; i += 10) {
+                System.out.println("(" + i + ", " + (sums[i][j] / tries) + ")");
+            }
+            System.out.println("-----");
+        }
     }
 
     public static void printSolution(Instance in, SolutionSet s) {
@@ -68,7 +79,6 @@ public class App {
             Instant after = Instant.now();
             sum += Duration.between(before, after).toMillis();
             System.out.println(Duration.between(before, after).toMillis());
-            // System.out.print(timings[i]);
         }
         // System.out.println(name + " (ms):" + (sum / tries));
     }

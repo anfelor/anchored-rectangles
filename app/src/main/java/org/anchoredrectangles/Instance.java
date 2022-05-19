@@ -4,9 +4,9 @@
  */
 package org.anchoredrectangles;
 
-import javax.sound.midi.SysexMessage;
-
 import org.anchoredrectangles.Point.Point;
+import java.util.Set;
+import java.util.HashSet;
 
 public class Instance {
     /*
@@ -92,6 +92,16 @@ public class Instance {
 
     public int getSize() {
         return points.length;
+    }
+
+    public boolean hasDuplicates() {
+        Set<Point> set = new HashSet<Point>();
+        for (int i = 0; i < points.length; i++)
+        {
+            if (set.contains(points[i])) return true;
+            set.add(points[i]);
+        }
+        return false;
     }
 
     private Point corner;

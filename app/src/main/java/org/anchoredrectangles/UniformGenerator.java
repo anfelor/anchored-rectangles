@@ -16,16 +16,20 @@ public class UniformGenerator {
      * is not checked.
      */
     public static Instance generate(int n, Point corner) {
-        Random r = new Random();
-        Point points[] = new Point[n];
-        for(int i = 0; i < n; i++) {
-            double[] point = new double[corner.dimension()];
-            for(int d = 0; d < corner.dimension(); d++) {
-                point[d] = r.nextDouble() * corner.get(d);
-                point[d] = (double) Math.round(point[d] * 1000) / 1000;
+        Instance in; int exactness = (int) Math.pow(10, Math.log10((double) n) + 2);
+        do {
+            Random r = new Random();
+            Point points[] = new Point[n];
+            for(int i = 0; i < n; i++) {
+                double[] point = new double[corner.dimension()];
+                for(int d = 0; d < corner.dimension(); d++) {
+                    point[d] = r.nextDouble() * corner.get(d);
+                    point[d] = (double) Math.round(point[d] * exactness) / exactness;
+                }
+                points[i] = new Point(point);
             }
-            points[i] = new Point(point);
-        }
-        return new Instance(corner, points);
+            in = new Instance(corner, points);
+        } while(in.hasDuplicates());
+        return in;
     }
 }

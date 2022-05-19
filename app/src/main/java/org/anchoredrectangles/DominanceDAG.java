@@ -11,14 +11,18 @@ public class DominanceDAG {
     Graph g;
     int[] indegree;
 
-    public DominanceDAG(Instance in) {
-        this.g = new Graph(in.getSize() + 1);
+    public DominanceDAG(Instance in) throws IllegalArgumentException {
+        if(in.hasDuplicates()) {
+            throw new IllegalArgumentException("Invalid instance: contains duplicated points!");
+        }
+
+        this.g = new Graph(in.getSize());
         this.indegree = new int[in.getSize()];
         for(int i = 0; i < in.getSize(); i++) {
             this.indegree[i] = 0;
         }
 
-        Graph gi = new Graph(in.getSize() + 1);
+        Graph gi = new Graph(in.getSize());
         for(int i = 0; i < in.getSize(); i++) {
             Point p = in.getPoints()[i];
             for(int j = 0; j < in.getSize(); j++) {

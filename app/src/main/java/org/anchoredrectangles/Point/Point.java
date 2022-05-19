@@ -40,4 +40,22 @@ public class Point {
         }
         return sb.toString();
     }
+
+    public boolean equals(Object o) {
+        if(!(o instanceof Point)) return false;
+        Point p = (Point) o;
+        if(data.length != p.data.length) return false;
+        for(int i = 0; i < data.length; i++) {
+            if(data[i] != p.data[i]) return false;
+        }
+        return true;
+    }
+
+    public int hashCode() {
+        int result = 1;
+        for(int i = 0; i < data.length; i++) {
+            result = 31 * result + Double.hashCode(data[i]);
+        }
+        return result;
+    }
 }

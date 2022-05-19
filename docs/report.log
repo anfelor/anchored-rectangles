@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.7.1)  18 MAY 2022 18:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.7.1)  19 MAY 2022 14:35
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1844,77 +1844,84 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 ] [2] [3]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 277.
+(hyperref)                removing `math shift' on input line 276.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 277.
+(hyperref)                removing `math shift' on input line 276.
 
 
-Underfull \hbox (badness 1442) in paragraph at lines 313--322
+Underfull \hbox (badness 1442) in paragraph at lines 312--321
 \OT1/cmr/m/n/10.95 (+20) To im-ple-ment \OT1/cmr/m/sc/10.95 (+20) Greedy-Pack-ing\OT1/cmr/m/n/10.95 (+20) , we will re-
  []
 
 
-Underfull \hbox (badness 2351) in paragraph at lines 323--328
+Underfull \hbox (badness 2351) in paragraph at lines 322--327
 []\OT1/cmr/m/n/10.95 (+20) We can use the same al-go-rithm for the
  []
 
 [4]
-Overfull \hbox (5.75337pt too wide) in paragraph at lines 592--593
+Overfull \hbox (5.75337pt too wide) in paragraph at lines 591--592
 [][] 
  []
 
 [5]
-Underfull \hbox (badness 3942) in paragraph at lines 604--604
+Overfull \hbox (1.2315pt too wide) in paragraph at lines 1676--1677
+[][] 
+ []
+
+
+Underfull \hbox (badness 3942) in paragraph at lines 1682--1682
 []\OT1/cmr/m/n/10.95 (+20) Antonios An-to-niadis et al. \  On
  []
 
 
-Underfull \hbox (badness 2635) in paragraph at lines 604--604
+Underfull \hbox (badness 2635) in paragraph at lines 1682--1682
 \OT1/cmr/m/it/10.95 (+20) ro-pean Sym-po-sium on Al-go-rithms
  []
 
-
-Underfull \hbox (badness 1082) in paragraph at lines 604--604
+[6]
+Underfull \hbox (badness 1082) in paragraph at lines 1682--1682
 []\OT1/cmr/m/n/10.95 (+20) Adrian Du-mitrescu and Csaba D
  []
 
 
-Underfull \hbox (badness 1072) in paragraph at lines 604--604
+Underfull \hbox (badness 1072) in paragraph at lines 1682--1682
 \OT1/cmr/m/n/10.95 (+20) and Jens Vy-gen. \  Di-jk-stra meets
  []
 
 
-Underfull \hbox (badness 4647) in paragraph at lines 604--604
+Underfull \hbox (badness 4647) in paragraph at lines 1682--1682
 []\OT1/cmr/m/n/10.95 (+20) William Thomas Tutte. \  Re-cent
  []
 
 
-Underfull \hbox (badness 5681) in paragraph at lines 604--604
+Underfull \hbox (badness 5681) in paragraph at lines 1682--1682
 \OT1/cmr/m/it/10.95 (+20) Al-go-rith-men und Daten-struk-turen\OT1/cmr/m/n/10.95 (+20) .
  []
 
-[6] (/Users/anton/orga/master/anchored-rectangles/docs/report.aux)
+[7
+
+] (/Users/anton/orga/master/anchored-rectangles/docs/report.aux)
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 60A8AC029DB58127966B70B3C55B17AD;2840.
+(rerunfilecheck)             Checksum: 68B7F19E90F7C3868B15B4B7824E749D;2908.
 Package logreq Info: Writing requests to 'report.run.xml'.
 \openout1 = `report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 51966 strings out of 478994
- 1127685 string characters out of 5858185
- 2101197 words of memory out of 5000000
- 68400 multiletter control sequences out of 15000+600000
+ 53013 strings out of 478994
+ 1160089 string characters out of 5858185
+ 2132425 words of memory out of 5000000
+ 69443 multiletter control sequences out of 15000+600000
  420417 words of font info for 144 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 112i,12n,116p,1505b,2473s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 112i,19n,116p,1505b,2473s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmb10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/mathabx-type1/matha10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/mathabx-type1/matha6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/mathabx-type1/matha8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/mathabx-type1/mathb10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/mathabx-type1/mathx10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/anton/orga/master/anchored-rectangles/docs/report.pdf (6 pages, 206723 bytes).
+Output written on /Users/anton/orga/master/anchored-rectangles/docs/report.pdf (7 pages, 231865 bytes).
 PDF statistics:
- 214 PDF objects out of 1000 (max. 8388607)
- 185 compressed objects within 2 object streams
- 34 named destinations out of 1000 (max. 500000)
+ 227 PDF objects out of 1000 (max. 8388607)
+ 197 compressed objects within 2 object streams
+ 38 named destinations out of 1000 (max. 500000)
  22661 words of extra memory for PDF output out of 24883 (max. 10000000)
 
