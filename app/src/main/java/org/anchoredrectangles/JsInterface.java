@@ -9,6 +9,7 @@ import org.anchoredrectangles.Point.Point;
 import java.nio.file.Files;
 
 import org.anchoredrectangles.Point.NormOrder;
+import org.anchoredrectangles.Point.MinOrder;
 
 import java.io.File;
 import java.io.IOException;
@@ -35,6 +36,9 @@ public class JsInterface {
               break;
             case "greedy":
               s = (new GreedyAlgorithm(true, new NormOrder(1))).solve(in);
+              break;
+            case "online":
+              s = (new GreedyAlgorithm(true, new MinOrder())).solve(in);
               break;
             case "tile":
               s = (new TilePackingAlgorithm(new NormOrder(1))).solve(in);

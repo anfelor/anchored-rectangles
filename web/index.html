@@ -10,6 +10,7 @@ html, body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    background-color: white;
 }
 #header {
     padding: 0.5em;
@@ -52,8 +53,12 @@ function nearest(points, point) {
 
 function resizeCanvas() {
     const wrapper = document.getElementById('canvas-wrapper');
+    const width = canvas.width; const height = canvas.height;
     canvas.width = wrapper.offsetWidth;
     canvas.height = wrapper.offsetHeight;
+    const newWidth = canvas.width; const newHeight = canvas.height;
+    points = points.map(p => [(p[0] / width) * newWidth, (p[1] / height) * newHeight])
+    solution = solution.map(p => [(p[0] / width) * newWidth, (p[1] / height) * newHeight])
     drawCanvas();
     solve();
 }
@@ -195,6 +200,7 @@ document.getElementById('load').addEventListener('click', function() {
             <select name="solve-select" id="solve-select">
                 <option value="tile">TilePacking</option>
                 <option value="greedy">GreedyPacking</option>
+                <option value="online">Online</option>
                 <option value="opt">Optimal</option>
                 <option value="dijkstra">Dijkstra</option>
             </select>
