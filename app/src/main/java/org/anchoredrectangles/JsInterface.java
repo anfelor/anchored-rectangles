@@ -4,12 +4,7 @@
 
 package org.anchoredrectangles;
 
-import org.anchoredrectangles.Point.Point;
-
-import java.nio.file.Files;
-
-import org.anchoredrectangles.Point.NormOrder;
-import org.anchoredrectangles.Point.MinOrder;
+import org.anchoredrectangles.Point.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -31,17 +26,20 @@ public class JsInterface {
             case "opt":
               s = (new DynProgAlgorithm()).solve(in);
               break;
-            case "dijkstra":
-              s = (new DijkstraDynProgAlgorithm()).solve(in);
-              break;
-            case "greedy":
-              s = (new GreedyAlgorithm(true, new NormOrder(1))).solve(in);
-              break;
-            case "online":
-              s = (new GreedyAlgorithm(true, new MinOrder())).solve(in);
-              break;
             case "tile":
               s = (new TilePackingAlgorithm(new NormOrder(1))).solve(in);
+              break;
+            case "manhattan":
+              s = (new GreedyAlgorithm(true, new NormOrder(1))).solve(in);
+              break;
+            case "euclidean":
+              s = (new GreedyAlgorithm(true, new NormOrder(2))).solve(in);
+              break;
+            case "min":
+              s = (new GreedyAlgorithm(true, new MinOrder())).solve(in);
+              break;
+            case "max":
+              s = (new GreedyAlgorithm(true, new MaxOrder())).solve(in);
               break;
             default:
               break;

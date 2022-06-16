@@ -19,11 +19,12 @@ public class App {
 
     public static void main(String[] args) {
         DraggableGui.main(args);
+        // doComparisons(500000);
         // timeSolver(11000, 10, new GreedyAlgorithm(false, new NormOrder(1)), "Greedy");
         // timeSolver(80, 1, new DynProgAlgorithm(), "DynProg");
         // timeSolver(90, 1, new DijkstraDynProgAlgorithm(), "DijkstraDynProg");
         // showNormPerformance();
-        // findBadInstance(10000, "../instances/worst/tile5.llarp", new TilePackingAlgorithm(new NormOrder(1)));
+        // findBadInstance(10, 100000, "../instances/worst/optimal10.llarp", new DynProgAlgorithm());
 
         // testCoverage();
     }
@@ -83,11 +84,11 @@ public class App {
         // System.out.println(name + " (ms):" + (sum / tries));
     }
 
-    public static void findBadInstance(int tries, String filename, LLARPSolver solver) {
+    public static void findBadInstance(int points, int tries, String filename, LLARPSolver solver) {
         double cworst = 2;
         Instance iworst = null;
         for(int i = 0; i < tries; i++) {
-            Instance in = UniformGenerator.generate(20, new Point(1,1));
+            Instance in = UniformGenerator.generate(points, new Point(1,1));
             SolutionSet s = solver.solve(in);
             if(s.getCoverage() <= cworst) {
                 cworst = s.getCoverage();
@@ -98,6 +99,35 @@ public class App {
             System.out.println("Worst coverage found: "+ cworst);
             Files.writeString((new File(filename)).toPath(), iworst.toString());
         } catch(Exception e) {}
+    }
+    
+    public static void doComparisons(int tries) {
+        Instance[][] comparisons = new Instance[4][4];
+        for(int n = 0; n < tries; n++) {
+            Instance in = UniformGenerator.generate(10, new Point(1,1));
+            double[] s = new double[4];
+            s[0] = (new GreedyAlgorithm(true, new NormOrder(1))).solve(in).getCoverage();
+            s[1] = (new GreedyAlgorithm(true, new NormOrder(2))).solve(in).getCoverage();
+            s[2] = (new GreedyAlgorithm(true, new MinOrder())).solve(in).getCoverage();
+            s[3] = (new GreedyAlgorithm(true, new MaxOrder())).solve(in).getCoverage();
+            for(int i = 0; i < 4; i++) {
+                for(int j = 0; j < 4; j++) {
+                    if(s[i] > s[j] + 0.1)  {
+                        comparisons[i][j] = in;
+                    }
+                }
+            }
+        }
+        int count = 0;
+        for(int i = 0; i < 4; i++) {
+            for(int j = 0; j < 4; j++) {
+                if(comparisons[i][j] != null) {
+                    count++;
+                    System.out.println(i + " is better than " + j + " on the instance:\n" + comparisons[i][j].toString());
+                }
+            }
+        }
+        System.out.println(count);
     }
 
     public static void showNormPerformance() {

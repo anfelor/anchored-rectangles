@@ -199,10 +199,11 @@ document.getElementById('load').addEventListener('click', function() {
             <label for="solve-select">Solver:</label>
             <select name="solve-select" id="solve-select">
                 <option value="tile">TilePacking</option>
-                <option value="greedy">GreedyPacking</option>
-                <option value="online">Online</option>
                 <option value="opt">Optimal</option>
-                <option value="dijkstra">Dijkstra</option>
+                <option value="manhattan">GreedyPacking (Manhattan norm)</option>
+                <option value="euclidean">GreedyPacking (Euclidean norm)</option>
+                <option value="min">GreedyPacking (-infinity "norm")</option>
+                <option value="max">GreedyPacking (infinity norm)</option>
             </select>
             <button id="load">Load</button>
             <button id="save">Save</button>

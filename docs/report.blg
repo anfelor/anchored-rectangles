@@ -1,15 +1,15 @@
 [0] Config.pm:311> INFO - This is Biber 2.16
 [0] Config.pm:314> INFO - Logfile is 'report.blg'
-[82] biber-darwin:340> INFO - === Thu May 19, 2022, 13:51:59
-[101] Biber.pm:415> INFO - Reading 'report.bcf'
-[209] Biber.pm:952> INFO - Found 8 citekeys in bib section 0
-[228] Biber.pm:4340> INFO - Processing section 0
-[258] Biber.pm:4531> INFO - Looking for bibtex format file 'lit.bib' for section 0
-[261] bibtex.pm:1689> INFO - LaTeX decoding ...
-[343] bibtex.pm:1494> INFO - Found BibTeX data source 'lit.bib'
-[435] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[435] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[435] Biber.pm:4168> INFO - Sorting list 'anyt/global//global/global' of type 'entry' with template 'anyt' and locale 'en-US'
-[435] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
-[445] bbl.pm:654> INFO - Writing 'report.bbl' with encoding 'UTF-8'
-[452] bbl.pm:757> INFO - Output to report.bbl
+[54] biber-darwin:340> INFO - === Thu Jun 16, 2022, 16:25:55
+[67] Biber.pm:415> INFO - Reading 'report.bcf'
+[135] Biber.pm:952> INFO - Found 8 citekeys in bib section 0
+[147] Biber.pm:4340> INFO - Processing section 0
+[155] Biber.pm:4531> INFO - Looking for bibtex format file 'lit.bib' for section 0
+[157] bibtex.pm:1689> INFO - LaTeX decoding ...
+[207] bibtex.pm:1494> INFO - Found BibTeX data source 'lit.bib'
+[266] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[266] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[266] Biber.pm:4168> INFO - Sorting list 'anyt/global//global/global' of type 'entry' with template 'anyt' and locale 'en-US'
+[266] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
+[272] bbl.pm:654> INFO - Writing 'report.bbl' with encoding 'UTF-8'
+[276] bbl.pm:757> INFO - Output to report.bbl

@@ -85,8 +85,11 @@ Traveling Salesman Problem)
 also works for this problem. While we discuss that technique in section \ref{optimal},
 packing according to special permutations has proven effective in practice.
 Several variations are possible, which we discuss in section \ref{tiled} and section \ref{greedy}.
-Finally, in section \ref{experiments} we show some charts that display the performance of the algorithms
-on a dataset of random points.
+
+Our improved algorithms allow us to consider a wide range of instances.
+In section \ref{experiments} we show some charts that display the performance of the algorithms
+on a dataset of random points. We also implemented a user interface that allows interactive
+exploration of these instances. In section \ref{userinterface} we give a short manual.
 
 \section{Tile Packing}
 \label{tiled}
@@ -151,6 +154,14 @@ In this section, we discuss the \textsc{GreedyPacking} algorithm which is very s
 to the \textsc{TilePacking} algorithm but always returns a pareto optimal solution.
 Harder \cite{harder2019anchoredrectanglecover} showed how this can be achieved in
 time $O(n^2\, \log n)$ and space $O(n^2)$.
+
+\begin{figure}
+  \begin{center}
+  \includegraphics[width=8cm]{tilerect.png}
+  \end{center}
+\caption{Tile rectangle for the blue rectangle}
+\label{tilerect}
+\end{figure}
 
 However, we can improve this to $O(n^2)$ and $O(n)$ respectively if we perform the algorithm as follows:
 In step 1, we find for the to-be-placed point $p$ the \textit{tile rectangle}: the smallest rectangle
@@ -349,6 +360,14 @@ Next, we discuss some heuristics for speeding it up further.
 
 \subsection{The Dominance Directed Acyclic Graph}
 
+\begin{figure}
+  \begin{center}
+  \includegraphics[width=8cm]{dominance-dag.png}
+  \end{center}
+\caption{The Dominance DAG}
+\label{domdag}
+\end{figure}
+
 Recall that $q$ \textit{dominates} $p$, written $p \leq q$ if
 $p_x \leq q_x$ and $p_y \leq q_y$. Clearly, $p \leq q$ implies $p \preceq q$.
 A set $P$ is \textit{dominant} if for all $p \in P$ and $p \leq q$,
@@ -384,8 +403,9 @@ there is some point $p_i$ that has no other point in its tile. Since we use the 
 algorithm to place the rectangles, we can not make the solution worse by simply placing this rectangle
 directly. We say that this rectangle is \textit{implied} by the partial solution for $\{p_1, \dots, p_k\}$.
 In particular, for $k = 0$ this argument implies that the roots of the dominance DAG can be
-placed greedily before we even start the dynamic programming algorithm.
-
+placed greedily before we even start the dynamic programming algorithm: in figure \ref{domdag} the yellow
+and red rectangle can be placed immediately (and we would obtain an equally good solution if the yellow one
+was placed before the red one).
 We have found this to be an extremely useful optimization in practice, as any placing of $c$ rectangles
 implied by a partial solution avoids updating $2^{c-1}$ subsets.
 
@@ -1182,6 +1202,7 @@ about the distribution of the points than about the algorithms themselves.
 \end{axis}
 \end{tikzpicture}
 \caption{Average coverage of the greedy algorithm on $n$ uniformly random points; 100 instances}
+\label{normcov}
 \end{figure}
 
 \begin{figure}
@@ -1677,6 +1698,43 @@ about the distribution of the points than about the algorithms themselves.
 \caption{Average coverage of the greedy algorithm on $n$ uniformly random points; 100 instances}
 \label{smallnorms}
 \end{figure}
+
+In figure \ref{normcov} we take a look at the behaviour of different norms on random data
+for the greedy algorithm. It turns out that the Manhattan norm does best (by a significant factor)
+on average which justifies the interest in this norm. In figure \ref{smallnorms} we present
+the results for $p$-norms with $p \leq 1$. While smaller $p$-values seem to be better, the
+difference is quite small (note the scaled y-axis).
+
+While there is of course no instance where the \textsc{TilePacking} algorithm does better
+than \textsc{GreedyPacking} or the optimal one, the picture is more muddled for norms.
+In fact, for each pair of norms in figure \ref{normcov} we can find an instance
+where one covers 10\% more space than the other.
+In the \texttt{instances} folder, we have selected twelve such instances.
+As such, we believe that
+no norm is inherently better than any other when one wants to maximise the covered space.
+
+What if one wants to find an algorithm that always covers half of the space?
+We can not answer this question with random data -- while we have compiled
+a list of worst random instances in the \texttt{instances} folder they are
+not very bad. For the norms we obtain `worst' instances on 20 points
+with a coverage around 63\% and around 70\% for the optimal algorithm.
+We believe that it would be interesting to generate the point sets by
+stochastic processes that introduce more structure than a uniform distribution.
+
+\section{User Interface} \label{userinterface}
+
+\begin{figure*}
+\includegraphics[width=\textwidth]{ui.png}
+\caption{User interface}
+\label{ui}
+\end{figure*}
+
+We have implemented a user interface for our algorithms.
+In a drawing area one can view instances; add a point by clicking
+at a free spot; move a point by dragging it or delete a point
+by a double-click. The menubar at the top has the following entries: A dropdown
+to select the desired algorithm; buttons to save and load the instances
+from files and to the left the coverage of the currently displayed instance. 
 
 \printbibliography
 \end{document}
