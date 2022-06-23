@@ -146,4 +146,17 @@ public class App {
         av = averageCoverage(100, 1000, new GreedyAlgorithm(true, new MaxOrder()));
         System.out.println("infty: " + av);
     }
+
+    public static void writeLineInstance() {
+        int n = 9999;
+        Point[] points = new Point[n];
+        for(int i = 0; i < n; i++) {
+            points[i] = new Point((1.0 + i) / (n + 1.0), (1.0 + i) / (n + 1.0));
+        }
+        Instance line = new Instance(new Point(1,1), points);
+        // System.out.println((new GreedyAlgorithm(true, new NormOrder(1))).solve(line).getCoverage());
+        try {
+            Files.writeString((new File("../instances/line10000.llarp")).toPath(), line.toString());
+        } catch(Exception e) {}
+    }
 }

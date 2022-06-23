@@ -73,6 +73,11 @@ function getPointsObj() {
     return obj;
 }
 
+function precisionRound(number, precision) {
+    var factor = Math.pow(10, precision);
+    return Math.round(number * factor) / factor;
+}
+
 function solve() {
     solution = [];
     if(window.java !== undefined) {
@@ -80,11 +85,11 @@ function solve() {
         const obj = getPointsObj();
         const method = document.getElementById('solve-select').value; 
         const s = java.solve(method, obj);
-        document.getElementById('coverage').textContent = (s.getCoverage() * 100).toString();
+        document.getElementById('coverage').textContent = precisionRound(s.getCoverage() * 100, 3).toString();
         for(let i = 0; i <= points.length; ++i) {
             solution[i] = [];
-            solution[i][0] = Math.round(s.getCorners()[i].get(0) * width);
-            solution[i][1] = Math.round(height - (s.getCorners()[i].get(1) * height));
+            solution[i][0] = s.getCorners()[i].get(0) * width;
+            solution[i][1] = height - (s.getCorners()[i].get(1) * height);
         }
     }
     drawCanvas();
@@ -173,6 +178,14 @@ document.getElementById('save').addEventListener('click', function() {
     }
 });
 
+document.getElementById('clear').addEventListener('click', function() {
+    points = [];
+    solution = [];
+    draggedPoint = null;
+    wasDragged = false;
+    solve();
+});
+
 document.getElementById('load').addEventListener('click', function() {
     const width = canvas.width; const height = canvas.height;
     if(window.java) {
@@ -182,8 +195,8 @@ document.getElementById('load').addEventListener('click', function() {
             points = []
             for(var i = 0; i < instance.getSize(); i++) {
                 points[i] = []
-                points[i][0] = Math.round(instance.getPoints()[i].get(0) * width);
-                points[i][1] = Math.round(height - instance.getPoints()[i].get(1) * height);
+                points[i][0] = instance.getPoints()[i].get(0) * width;
+                points[i][1] = height - instance.getPoints()[i].get(1) * height;
             }
             solve();
         }
@@ -205,6 +218,7 @@ document.getElementById('load').addEventListener('click', function() {
                 <option value="min">GreedyPacking (-infinity "norm")</option>
                 <option value="max">GreedyPacking (infinity norm)</option>
             </select>
+            <button id="clear">Clear</button>
             <button id="load">Load</button>
             <button id="save">Save</button>
         </div>

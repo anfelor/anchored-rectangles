@@ -22,7 +22,8 @@ public class DynProgAlgorithm implements LLARPSolver {
         DynProgStepSet initialPacking = new DynProgStepSet(dag, in);
         BigInteger initialSet = initialPacking.stepRoots();
         initialPacking.stepOrigin();
-        
+        if(in.getSize() == 0) { return initialPacking; }
+
         ArrayList<TreeMap<BigInteger, DynProgStepSet>> subsets = new ArrayList<>();
         for(int i = 0; i < in.getSize(); i++) {
             subsets.add(new TreeMap());

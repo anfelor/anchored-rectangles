@@ -1,0 +1,137 @@
+\ProvidesPackage{config}
+
+\usepackage[backend = biber,style=alphabetic]{biblatex}
+\usepackage[titletoc]{appendix}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{caption}
+\usepackage{cellspace}
+\usepackage{color}
+\usepackage{comment}
+\usepackage{dirtree}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{ltablex}
+\usepackage{booktabs}
+\usepackage{mathpartir}
+\usepackage{mathtools}
+\usepackage{microtype}
+\usepackage{minted}
+\usepackage{svg}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{verbatim}
+\usepackage{centernot}
+\usepackage{wrapfig}
+\usepackage{bussproofs}
+\usepackage{enumitem}
+\usepackage{mdframed}
+\usepackage{csquotes}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+
+\usetikzlibrary{positioning}
+
+%https://tex.stackexchange.com/questions/114942/how-do-i-get-selective-bold-in-verbatim
+\usepackage{alltt}
+\usepackage{tgcursor}
+
+\addbibresource{lit.bib}
+
+\DeclareUnicodeCharacter{2115}{\ensuremath{\mathbb{N}}}
+\DeclareUnicodeCharacter{2192}{\ensuremath{\mapsto}}
+\DeclareUnicodeCharacter{03B1}{\ensuremath{\alpha}}
+\DeclareUnicodeCharacter{03B2}{\ensuremath{\beta}}
+\DeclareUnicodeCharacter{03B3}{\ensuremath{\gamma}}
+\DeclareUnicodeCharacter{03A0}{\ensuremath{\Pi}}
+\DeclareUnicodeCharacter{2227}{\ensuremath{\land}}
+\DeclareUnicodeCharacter{2228}{\ensuremath{\lor}}
+\DeclareUnicodeCharacter{2194}{\ensuremath{\iff}}
+\DeclareUnicodeCharacter{27E8}{\ensuremath{\langle}}
+\DeclareUnicodeCharacter{27E9}{\ensuremath{\rangle}}
+\DeclareUnicodeCharacter{2200}{\ensuremath{\forall}}
+\DeclareUnicodeCharacter{2203}{\ensuremath{\exists}}
+\DeclareUnicodeCharacter{2223}{\ensuremath{|}}
+\DeclareUnicodeCharacter{2265}{\ensuremath{\geq}}
+\DeclareUnicodeCharacter{2260}{\ensuremath{\neq}}
+\DeclareUnicodeCharacter{2124}{\ensuremath{\mathbb{Z}}}
+\DeclareUnicodeCharacter{2218}{\ensuremath{\circ}}
+\DeclareUnicodeCharacter{2081}{\ensuremath{\textsubscript{1}}}
+\DeclareUnicodeCharacter{2082}{\ensuremath{\textsubscript{2}}}
+\DeclareUnicodeCharacter{2099}{\ensuremath{\textsubscript{n}}}
+
+\DeclareUnicodeCharacter{2205}{\ensuremath{\emptyset}}
+\DeclareUnicodeCharacter{222A}{\ensuremath{\cup}}
+\DeclareUnicodeCharacter{2208}{\ensuremath{\in}}
+\DeclareUnicodeCharacter{2282}{\ensuremath{\subset}}
+\DeclareUnicodeCharacter{2286}{\ensuremath{\subseteq}}
+\DeclareUnicodeCharacter{03A3}{\ensuremath{\Sigma}}
+\DeclareUnicodeCharacter{25A1}{\ensuremath{\square}}
+
+% https://wiki.haskell.org/Literate_programming#Hiding%20code%20from%20latex
+\long\def\ignore#1{}
+
+\newenvironment{code}{\VerbatimEnvironment\begin{minted}[breaklines]{haskell}}{\end{minted}}
+\newenvironment{spec}{\VerbatimEnvironment\begin{minted}[breaklines]{haskell}}{\end{minted}}
+\newenvironment{lean}{\VerbatimEnvironment\begin{minted}[breaklines]{lean}}{\end{minted}}
+\newenvironment{langc}{\VerbatimEnvironment\begin{minted}[breaklines]{c}}{\end{minted}}
+\newenvironment{cpp}{\VerbatimEnvironment\begin{minted}[breaklines]{cpp}}{\end{minted}}
+\newenvironment{java}{\VerbatimEnvironment\begin{minted}[breaklines]{java}}{\end{minted}}
+\newcommand{\hs}{\mintinline{haskell}}
+
+\newcommand{\parm}{\mathord{\color{black!33}\bullet}}%
+\newcommand{\notiff}{%
+  \mathrel{{\ooalign{\hidewidth$\not\phantom{"}$\hidewidth\cr$\iff$}}}}
+
+\usepackage{newunicodechar}
+\newunicodechar{λ}{$\lambda$}
+\newunicodechar{Λ}{$\Lambda$}
+\newunicodechar{☐}{$\Box$}
+
+\newcounter{nalg}[section] % defines algorithm counter for chapter-level
+\renewcommand{\thenalg}{\thesection .\arabic{nalg}} %defines appearance of the algorithm counter
+\DeclareCaptionLabelFormat{algocaption}{Algorithm \thenalg} % defines a new caption label as Algorithm x.y
+
+\lstnewenvironment{algorithm}[1][] %defines the algorithm listing environment
+{   
+    \refstepcounter{nalg} %increments algorithm number
+    \captionsetup{labelformat=algocaption,labelsep=colon} %defines the caption setup for: it ises label format as the declared caption label above and makes label and caption text to be separated by a ':'
+    \lstset{ %this is the stype
+        mathescape=true,
+        frame=tB,
+        numbers=left, 
+        numberstyle=\tiny,
+        basicstyle=\scriptsize, 
+        keywordstyle=\color{black}\bfseries\em,
+        keywords={procedure,input, output, return, datatype, case, of, in, if, else, foreach, while, begin, end, } %add the keywords you want, or load a language as Rubens explains in his comment above.
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1 % this is to add specific settings to an usage of this environment (for instnce, the caption and referable label)
+    }
+}
+{}
+
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+\newcommand{\disjoint}{\ensuremath{\dot\cup}}
+
+% \newcounter{allc}
+% \theoremstyle{definition}
+% \newtheorem{theorem}{Theorem}
+% \theoremstyle{definition}
+% \newtheorem{corollary}{Corollary}[theorem]
+% \theoremstyle{definition}
+% \newtheorem{lemma}[theorem]{Lemma}
+% \theoremstyle{definition}
+% \newtheorem{rulex}[theorem]{Rule}
+% \theoremstyle{definition}
+% \newtheorem{exercise}{Exercise}
+% \theoremstyle{definition}
+% \newtheorem{example}{Example}
+% \theoremstyle{definition}
+% \newtheorem{remark}{Remark}
+% \theoremstyle{definition}
+% \newtheorem{definition}{Def.}

@@ -5,7 +5,7 @@
  */
 package org.anchoredrectangles;
 
-public class DynProgAlgorithmOld implements LLARPSolver {
+public class NaiveDynProgAlgorithm implements LLARPSolver {
     public GreedyStepSet solve(Instance in) {
         GreedyStepSet[] gs = new GreedyStepSet[1 << in.getSize()];
         for(int i = 0; i < in.getSize(); i++) {
